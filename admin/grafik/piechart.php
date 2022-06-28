@@ -10,7 +10,7 @@
 <div class="card card-info">
 	<div class="card-header ">
 		<h3 class="card-title">
-			<i class="fa fa-chart-pie "></i> Grafik Pie Hasil Suara</h3>
+			<i class="fa fa-chart-pie "></i> Grafik Bar chart Hasil Suara</h3>
 	</div>
     <div class="card-body justify-content-center">
     <div id="canvas-holder" >
@@ -21,7 +21,9 @@
 			type: 'pie',
 			data: {
 				datasets: [{
+                    
 					data:<?php echo json_encode(($data_chart['jumlah'])); ?>,
+                    label: "perhitungan suara",
 					backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
@@ -34,6 +36,7 @@
 					'rgba(0, 0, 205, 0.2)',
 					'rgba(40, 178, 170, 0.2)'
 					],
+
 					borderColor: [
 					'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)',
@@ -46,7 +49,6 @@
 					'rgba(0, 0, 205, 1)',
 					'rgba(40, 178, 170, 1)'
 					],
-					label: 'Persentase Total Cases COVID-19'
 				}],
 				labels: <?php echo json_encode($data_chart['nama']); ?>},
 			options: {
