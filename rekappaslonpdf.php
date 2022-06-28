@@ -7,7 +7,7 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 $query = mysqli_query($koneksi, "SELECT * from tb_paslon");
 
-$html = '<hr><center><h3>Rekap Suara</h3></center><hr/><br/>';
+$html = '<hr><center><h3>DATA PASLON</h3></center><hr/><br/>';
 $html .= '<table border="1" width="100%">
 <tr>
 <th>No Urut</th>

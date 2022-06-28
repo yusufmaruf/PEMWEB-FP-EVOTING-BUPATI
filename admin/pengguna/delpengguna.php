@@ -2,8 +2,11 @@
 // mengambil id yang akan di delete 
 if(isset($_GET['kode'])){
     // proses delete 
-            $sql_hapus = "DELETE FROM tb_user WHERE iduser='".$_GET['kode']."'";
+            $kode = $_GET['kode'];  
+            $sql_hapus = "DELETE FROM tb_user WHERE iduser='".$kode."'";
+            
             $query_hapus = mysqli_query($koneksi, $sql_hapus);
+
             // menampilkan alert succes delete 
             if ($query_hapus) {
                 echo "<script>
