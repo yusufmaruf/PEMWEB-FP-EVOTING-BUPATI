@@ -20,23 +20,26 @@ $koneksi = new mysqli ("localhost","root","","evote");
 					<tbody>
 
 						<?php
-					$no = 1;
+		
 					$sql = $koneksi->query("select * from tb_paslon");
 					while ($data= $sql->fetch_assoc()) {
-
+						// mengisi var penampung 
 						$id_calon = $data["id_paslon"];
 					?>
 
 						<tr>
 							<td>
+								<!-- menampilkan nomor urut calon  -->
 								<?php echo $data['id_paslon']; ?>
 							</td>
 							<td>
 								<h4>
 									<?php
+									// query hitung suara 
 								$sql_hitung = "SELECT COUNT(id_vote) from tb_vote  where id_paslon='$id_calon'";
 								$q_hit= mysqli_query($koneksi, $sql_hitung);
 								while($row = mysqli_fetch_array($q_hit)) {
+									// menampilkan suara 
 								echo $row[0]." Suara";
 								}
 							?>

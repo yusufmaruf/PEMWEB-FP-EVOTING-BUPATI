@@ -1,6 +1,7 @@
 <?php
 
 if(isset($_GET['kode'])){
+            // menghapus user 
             $sql_hapus = "DELETE FROM tb_user WHERE iduser='".$_GET['kode']."'";
             $query_hapus = mysqli_query($koneksi, $sql_hapus);
 

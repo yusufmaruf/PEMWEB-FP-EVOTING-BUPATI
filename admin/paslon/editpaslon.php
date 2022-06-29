@@ -14,7 +14,7 @@
 	</div>
 	<form action="" method="post" enctype="multipart/form-data">
 		<div class="card-body">
-
+			<!-- nomor urut  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nomor Urut</label>
 				<div class="col-sm-6">
@@ -24,7 +24,7 @@
 			</div>
 
 		
-
+			<!-- nama ketua  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nama Ketua</label>
 				<div class="col-sm-6">
@@ -34,7 +34,7 @@
 			</div>
 
 
-
+			<!-- nama wakil  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nama Wakil</label>
 				<div class="col-sm-6">
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 
-
+			<!-- foto paslon  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Foto Paslon</label>
 				<div class="col-sm-6">
@@ -53,7 +53,7 @@
 					</p>
 				</div>
 			</div>
-
+			<!-- visi  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Visi</label>
 				<div class="col-sm-6">
@@ -61,7 +61,7 @@
 					/>
 				</div>
 			</div>
-
+			<!-- misi  -->
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Misi</label>
 				<div class="col-sm-6">
@@ -71,6 +71,7 @@
 			</div>
 
 		</div>
+		<!-- simpan  -->
 		<div class="card-footer">
 			<input type="submit" name="Ubah" value="Simpan" class="btn btn-success">
 			<a href="?page=data-paslon" title="Kembali" class="btn btn-secondary">Batal</a>
@@ -80,21 +81,24 @@
 
 
 <?php
-
+// mengambil data dari form 
 $sumber = @$_FILES['foto_paslon']['tmp_name'];
+// direktori tujuan 
 $target = 'foto/';
+// mengambil namafile 
 $nama_file = @$_FILES['foto_paslon']['name'];
+// memindah file 
 $pindah = move_uploaded_file($sumber, $target.$nama_file);
 
 if (isset ($_POST['Ubah'])){
 
     if(!empty($sumber)){
+		// menganti foto 
         $foto= $data_cek['foto_paslon'];
             if (file_exists("foto/$foto")){
             unlink("foto/$foto");}
-
+		// update 
         $sql_ubah = "UPDATE tb_paslon SET
-          
             nama_paslon='".$_POST['nama_paslon']."',
             nama_wakil='".$_POST['nama_wakil']."',
             foto_paslon='".$nama_file."',
@@ -104,10 +108,11 @@ if (isset ($_POST['Ubah'])){
         $query_ubah = mysqli_query($koneksi, $sql_ubah);
 
     }elseif(empty($sumber)){
+		// query update 
         $sql_ubah = "UPDATE tb_paslon SET
             nama_paslon='".$_POST['nama_paslon']."',
             nama_wakil='".$_POST['nama_wakil']."',
-            foto_paslon='".$nama_file."',
+           
             visi_paslon='".$_POST['visi_paslon']."',
            	misi_paslon='".$_POST['misi_paslon']."'
             WHERE id_paslon='".$_POST['id_paslon']."'";

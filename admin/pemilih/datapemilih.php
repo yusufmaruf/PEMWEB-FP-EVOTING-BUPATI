@@ -17,7 +17,7 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>NPM</th>
+						<th>NIK</th>
 						<th>Nama Pemilih</th>
 						<th>Status</th>
 						<th>Aksi</th>

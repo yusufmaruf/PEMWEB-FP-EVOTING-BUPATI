@@ -11,6 +11,7 @@
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
+			<!-- tabel  -->
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -27,6 +28,7 @@
 
 					<?php
 					$no = 1;
+					// qeury mengambil data 
 					$sql = $koneksi->query("select * from tb_paslon");
 					while ($data= $sql->fetch_assoc()) {
 					?>

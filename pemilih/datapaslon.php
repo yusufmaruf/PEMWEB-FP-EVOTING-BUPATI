@@ -1,15 +1,15 @@
 <?php
-
+	// mengambil id session 
 	$data_id = $_SESSION["ses_id"];
-
+	// menjalankan query 
 	$sql = $koneksi->query("select * from tb_user where iduser=$data_id");
 	while ($data= $sql->fetch_assoc()) {
-
+	// meenyimpan status pemilih 
 	$status=$data['status'];
 
 }
 ?>
-
+ <!-- jika pemilih belum memlih atau status = 1  -->
 <?php if($status==1){ ?>
 
 <div class="card card-info">
@@ -21,6 +21,7 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<br>
+			<!-- menampilkan tabel  -->
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -51,9 +52,11 @@
 								<?php echo $data['nama_wakil']; ?>
 							</h2>
 							<br>
+							<!-- tombol detail  -->
 							<a href="?page=view-kandidat&kode=<?php echo $data['id_paslon']; ?>" class="btn btn-success">
 								<i class="fa fa-file"></i> Detail
 							</a>
+							<!-- tombol pilih  -->
 							<a href="?page=dpt-pilihkandidat&kode=<?php echo $data['id_paslon']; ?>" class="btn btn-primary">
 								<i class="fa fa-edit"></i> Pilih
 							</a>
@@ -70,6 +73,7 @@
 	</div>
 
 	<!-- /.card-body -->
+	<!-- jika sudah memilih atau status = 0  -->
 	<?php }elseif ($status==0) { ?>
 
 	<div class="alert alert-info alert-dismissible">

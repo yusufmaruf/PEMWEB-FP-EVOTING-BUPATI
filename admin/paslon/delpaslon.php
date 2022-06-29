@@ -8,11 +8,12 @@ if(isset($_GET['kode'])){
 ?>
 
 <?php
+    // menghapus foto 
     $foto= $data_cek['foto_paslon'];
     if (file_exists("foto/$foto")){
         unlink("foto/$foto");
     }
-
+    // menghapus data 
     $sql_hapus = "DELETE FROM tb_paslon WHERE id_paslon='".$_GET['kode']."'";
     $query_hapus = mysqli_query($koneksi, $sql_hapus);
     if ($query_hapus) {

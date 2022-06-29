@@ -1,8 +1,11 @@
 <?php
 
     if(isset($_GET['kode'])){
+		// query select 
         $sql_cek = "SELECT * FROM tb_paslon WHERE id_paslon='".$_GET['kode']."'";
-        $query_cek = mysqli_query($koneksi, $sql_cek);
+        // menjalankan query 
+		$query_cek = mysqli_query($koneksi, $sql_cek);
+		// cek data
 		$data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
 		
 		$kode=$_GET['kode'];
@@ -17,11 +20,13 @@
 	<!-- /.card-header -->
 	<div class="card-body">
 		<div class="table-responsive">
+			<!-- tombol kembali  -->
 			<div>
 				<a href="?page=dpt-datakandidat" class="btn btn-secondary btn-sm">
 					< Kembali</a>
 			</div>
 			<br>
+			<!-- tabel data paslon  -->
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -37,7 +42,9 @@
 
 					<?php
 					$no = 1;
+					// query mengambildata 
 					$sql = $koneksi->query("select * from tb_paslon where id_paslon=$kode");
+					// melakukan perulangan untuk menampilkan data 
 					while ($data= $sql->fetch_assoc()) {
 					?>
 

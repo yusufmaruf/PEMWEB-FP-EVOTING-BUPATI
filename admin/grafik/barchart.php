@@ -52,7 +52,14 @@
 				}],
 				labels: <?php echo json_encode($data_chart['nama']); ?>},
 			options: {
-				responsive: true
+				responsive: true,
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
 			}
 		};
 
@@ -95,6 +102,7 @@
 			config.data.datasets.splice(0, 1);
 			window.myPie.update();
 		});
+		
 	</script>
 
     </div>

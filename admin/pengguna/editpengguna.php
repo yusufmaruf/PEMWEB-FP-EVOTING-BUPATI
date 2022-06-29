@@ -17,9 +17,10 @@
     <form action="" method="post" enctype="multipart/form-data">
         <div class="card-body">
 
+            <!-- nama  -->
             <input type='hidden' class="form-control" name="id_pengguna" value="<?php echo $data_cek['iduser']; ?>"
              readonly/>
-
+            <!-- nik  -->
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">NIK</label>
                 <div class="col-sm-6">
@@ -27,6 +28,8 @@
                     />
                 </div>
             </div>
+
+            <!-- nama pengguna  -->
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nama Pengguna</label>
@@ -36,6 +39,7 @@
                 </div>
             </div>
 
+            <!-- password  -->
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-6">
@@ -44,7 +48,7 @@
                     <input id="mybutton" onclick="change()" type="checkbox" class="form-checkbox"> Lihat Password
                 </div>
             </div>
-
+            <!-- level  -->
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Level</label>
                 <div class="col-sm-4">

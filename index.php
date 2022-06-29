@@ -56,6 +56,7 @@ if (isset($_SESSION["ses_nik"])==""){
 	<!-- Auto Refresh -->
 	<script src="jquery-3.1.1.js" type="text/javascript"></script>
 	<script>
+    // ngeload aplikasi 
 		setInterval(function() {
 			$(".realtime").load("admin/perolehansuara/data_suara.php").fadeIn("slow");
 		}, 10000);
@@ -99,6 +100,7 @@ if (isset($_SESSION["ses_nik"])==""){
               <small> <?php echo $data_user ?> </small>
             </p>
           </li>
+          <!-- menu sign out  -->
           <li class="user-footer">
             <div class="float-right">
               <a href="logout.php" class="btn btn-flat bg-red">Sign out</a>
@@ -189,12 +191,14 @@ if (isset($_SESSION["ses_nik"])==""){
 								</p>
 							</a>
 							<ul class="nav nav-treeview">
+                <!-- daftar paslon  -->
 								<li class="nav-item">
 									<a href="?page=daftar-paslon" class="nav-link">
 										<i class="nav-icon far fa-solid fa-user text-info"></i>
 										<p>Daftar Paslon</p>
 									</a>
 								</li>
+                <!-- daftar pemilih  -->
 								<li class="nav-item">
 									<a href="?page=daftar-pemilih" class="nav-link">
 										<i class="nav-icon far fa-solid fa-user text-info"></i>
@@ -213,12 +217,14 @@ if (isset($_SESSION["ses_nik"])==""){
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <!-- bar chart  -->
               <li class="nav-item">
                 <a href="?page=bar-chart" class="nav-link">
                   <i class="far nav-icon fa-solid fa-chart-bar text-info"></i>
                   <p>Bar Chart</p>
                 </a>
               </li>
+              <!-- pie chart  -->
               <li class="nav-item">
                 <a href="?page=pie-chart" class="nav-link">
                   <i class="far fa fa-chart-pie nav-icon  text-info"></i>
@@ -236,19 +242,23 @@ if (isset($_SESSION["ses_nik"])==""){
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
+              <!-- menu data paslon  -->
               <li class="nav-item">
                 <a href="?page=cetak-paslon" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Paslon</p>
                 </a>
               </li>
+              <!-- menu data pemilih  -->
               <li class="nav-item">
                 <a href="?page=cetak-pemilih" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Pemilih</p>
                 </a>
               </li>
+              <!-- menu suara  -->
               <li class="nav-item">
                 <a href="?page=cetak-suara" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -259,7 +269,7 @@ if (isset($_SESSION["ses_nik"])==""){
           </li>
 
           <li class="nav-header">Pengaturan</li>
-
+          <!-- pengguna  -->
           <li class="nav-item">
             <a href="?page=data-pengguna" class="nav-link">
               <i class="nav-icon far fa-edit"></i>
@@ -272,6 +282,7 @@ if (isset($_SESSION["ses_nik"])==""){
         <?php
         } elseif($data_level=="pemilih"){
         ?>
+        <!-- bilik suara  -->
         <li class="nav-item">
 							<a href="?page=dpt-datakandidat" class="nav-link">
 								<i class="nav-icon far fa fa-edit"></i>
@@ -372,9 +383,9 @@ if (isset($_SESSION["ses_nik"])==""){
             case 'dpt-pilihkandidat':
               include "pemilih/pilihpaslon.php";
               break;
-            case 'dpt-bukakandidat':
-                      include "pemilih/bukapaslon.php";
-              break;
+            // case 'dpt-bukakandidat':
+            //           include "pemilih/bukapaslon.php";
+            //   break;
             case 'view-kandidat':
                       include "pemilih/lihatpaslon.php";
               break;
@@ -409,9 +420,11 @@ if (isset($_SESSION["ses_nik"])==""){
             
           }
         }else{
+          // jika admin masuk maka menampilkan home admin 
           if($data_level=="admin"){
               include "homeadmin.php";
               }
+          // jika login sebagai pemilih maka menampilkan home pemilih 
           elseif($data_level=="pemilih"){
               include "homepemilih.php";
               }
@@ -486,7 +499,9 @@ if (isset($_SESSION["ses_nik"])==""){
 <script>
   // fungsi datatable untuk table di dokumen 
 		$(function() {
+      // menerapkan datatable pada table yang dipilih
 			$("#example1").DataTable();
+      // menerapkan datatable pada table yang dipilih
 			$('#example2').DataTable({
 				"paging": true,
 				"lengthChange": false,
@@ -497,19 +512,8 @@ if (isset($_SESSION["ses_nik"])==""){
 			});
 		});
 	</script>
+	
 
-	<script>
-    // fungsi untuk select element 
-		$(function() {
-			//Initialize Select2 Elements
-			$('.select2').select2()
-
-			//Initialize Select2 Elements
-			$('.select2bs4').select2({
-				theme: 'bootstrap4'
-			})
-		})
-	</script>
 
 
 </body>

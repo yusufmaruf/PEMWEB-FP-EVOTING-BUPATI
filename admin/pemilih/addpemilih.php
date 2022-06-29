@@ -7,6 +7,7 @@
 	<form action="" method="post" >
 		<div class="card-body">
 
+      <!-- nik -->
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">NIK</label>
         <div class="col-sm-6">
@@ -14,13 +15,15 @@
         </div>
       </div>
 
+
+      <!-- nama pemilih  -->
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nama Pemilih</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="nama_pengguna" name="nama_pengguna" placeholder="Masukkan Nama Pemilih..." required>
         </div>
       </div>
-
+        <!-- password  -->
        <div class="form-group row">
         <label class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-6">
