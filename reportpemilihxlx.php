@@ -18,7 +18,7 @@ $sheet->setCellValue('C2', 'NIK');
 
 
 // Mengambil data pada tabel tb_siswa dengan memanggil koneksi
-$query = mysqli_query($koneksi, "select * from tb_user"); 
+$query = mysqli_query($koneksi, "select * from tb_user where jenis='PML' "); 
 $i = 3;
 $no = 1;
 while ($row = mysqli_fetch_array($query))
